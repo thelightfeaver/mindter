@@ -1,0 +1,20 @@
+[
+    {
+        "question":"Que es una buena cosa?",
+        "answers":[
+            "A) Pan con salamy",
+            "B) Solo con eso",
+            "C) Solo contigo",
+            "D) Solo una vez"
+        ]
+    },
+    {
+        "question":"Como se llama tu perro?",
+        "answers":[
+            "A) Husky",
+            "B) Chichiguagua",
+            "C) Labrador",
+            "D) Ni idea se me acabaron las ideas"
+        ]
+    }
+]
