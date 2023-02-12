@@ -10,9 +10,11 @@
   flex-direction: column;
   border-radius: 1rem;
 }
+
 .question > h1{
     color: white;
 }
+
 .answers {
   width: 100%;
   display: flex;

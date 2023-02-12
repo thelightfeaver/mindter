@@ -1,12 +1,37 @@
-import Questions from "../../components/questions"
-import './style.css'
-export default function Main() {
+import Questions from "../../components/questions";
+import "./style.css";
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  positionState,
+  questionarieState,
+  questionarieSelector,
+} from "../../state/qa";
 
-    const handleClick=(data)=>{
-        alert(data)
-    }
-    
-    return <div className="container">
-        <Questions handleClick={handleClick} question="que hora es?" answers={['los ', 'jjij', 'jjjnjj', 'jkhjh']}/>
-        </div>
+export default function Main() {
+  let algo = require("../../data/questionnaire.json");
+
+  const [position, setPosition] = useRecoilState(positionState);
+  const questionarie = useRecoilValue(questionarieSelector);
+  const setQuestion = useSetRecoilState(questionarieState);
+
+  useEffect(() => {
+    setQuestion(algo);
+  }, []);
+
+  const handleClick = (data) => {
+    setPosition(position + 1);
+  };
+
+  return (
+    <div className="container">
+      {questionarie && (
+        <Questions
+          handleClick={handleClick}
+          question={questionarie.question}
+          answers={questionarie.answers}
+        />
+      )}
+    </div>
+  );
 }
